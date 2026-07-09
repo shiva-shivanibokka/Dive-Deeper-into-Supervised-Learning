@@ -3,9 +3,10 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import { MODEL_TABS } from "./models";
+import { Tip } from "./lib/tip";
 
 const load = (p: () => Promise<{ default: React.ComponentType }>) =>
-  dynamic(p, { ssr: false, loading: () => <p style={{ color: "var(--muted)" }}>loading demo…</p> });
+  dynamic(p, { ssr: false, loading: () => <p className="note">loading demo…</p> });
 
 const TAB_COMPONENTS: Record<string, React.ComponentType> = {
   tree: load(() => import("./components/TreeTab")),
@@ -14,6 +15,7 @@ const TAB_COMPONENTS: Record<string, React.ComponentType> = {
   knnsvm: load(() => import("./components/KnnSvmTab")),
   interp: load(() => import("./components/InterpTab")),
   threshold: load(() => import("./components/ThresholdTab")),
+  about: load(() => import("./components/AboutTab")),
 };
 
 export default function Home() {
@@ -23,42 +25,43 @@ export default function Home() {
 
   return (
     <main className="wrap">
-      <div className="hero">
+      <header className="hero">
         <h1>Supervised Learning Playground</h1>
         <p>
-          Classic supervised-ML models — built from scratch across the companion notebooks — running{" "}
-          <strong>entirely in your browser</strong>. No server, no upload: every prediction is computed
-          on your machine from precomputed models. Trained on the{" "}
-          <a href="https://www.openml.org/d/1590" target="_blank" rel="noreferrer">Adult Census Income</a>{" "}
-          dataset.
+          Poke at classic machine-learning models — decision trees, gradient boosting, ensembles, k-NN and SVM —
+          built from scratch across the companion notebooks and running <strong>entirely in your browser</strong>.
+          Every prediction is computed on your own machine from precomputed models, trained on the{" "}
+          <a href="https://www.openml.org/d/1590" target="_blank" rel="noreferrer">Adult Census Income</a> dataset.
         </p>
-      </div>
+        <span className="live">
+          <b>●</b> live · no server · nothing leaves your machine
+        </span>
+      </header>
 
-      <div className="tabs" role="tablist" aria-label="Demos">
+      <nav className="tabs" role="tablist" aria-label="Demos">
         {MODEL_TABS.map((t) => (
-          <button
-            key={t.id}
-            className="tab"
-            role="tab"
-            aria-selected={t.id === active}
-            onClick={() => setActive(t.id)}
-          >
+          <button key={t.id} className="tab" role="tab" aria-selected={t.id === active} onClick={() => setActive(t.id)}>
             {t.title}
           </button>
         ))}
-      </div>
+      </nav>
 
       <section className="panel" role="tabpanel">
         <div className="panel-head">
-          <h2>{tab.title}</h2>
-          <span className="chip">Notebook {tab.nb} · {tab.dataset}</span>
+          <div className="htitle">
+            <h2>{tab.title}</h2>
+            <Tip text={tab.help} />
+          </div>
+          <span className="chip">
+            {tab.nb === "—" ? "Overview" : `Notebook ${tab.nb}`} · {tab.dataset}
+          </span>
         </div>
         <p className="panel-tagline">{tab.tagline}</p>
         {Comp ? <Comp /> : null}
       </section>
 
       <p className="footer">
-        Built by Shivani Bokka · models trained in scikit-learn / LightGBM · served client-side on Vercel
+        Built by Shivani Bokka · scikit-learn / LightGBM · served client-side on Vercel
       </p>
     </main>
   );

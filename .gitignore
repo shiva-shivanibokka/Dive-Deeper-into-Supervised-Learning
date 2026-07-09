@@ -10,6 +10,9 @@ data/
 *.cbm
 checkpoints/
 
+# CatBoost training logs
+catboost_info/
+
 # Python
 __pycache__/
 *.py[cod]

@@ -8,8 +8,12 @@ visualization.
 Built for two audiences at once: a complete beginner who wants the *why* behind each method, and a working
 practitioner who wants a clean, correct reference.
 
-> 🌐 **Interactive web demo:** *coming soon* — a browser-based playground (Next.js + ONNX Runtime Web) to run
-> these models live, with no install and no backend.
+### ▶ [**Live demo → dive-deeper-supervised-learning.vercel.app**](https://dive-deeper-supervised-learning.vercel.app)
+
+A browser-based playground where six of these models run **live, entirely client-side** — no install, no
+backend. Walk a decision tree, run a real 80-tree LightGBM as you change a person's features, reshape SVM
+boundaries, and drag a classification threshold while the confusion matrix and ROC/PR curves update in
+real time.
 
 ---
 
@@ -59,6 +63,31 @@ lifecycle of a supervised-learning model.
 Some notebooks use a stratified **sample** of Adult where an algorithm scales poorly to tens of thousands of
 rows (e.g. SVM and k-NN in notebooks 03 and 05); this is called out explicitly wherever it happens, and never
 changes the conclusions. Datasets download automatically from OpenML on first run.
+
+---
+
+## Interactive Web Demo
+
+**Live:** https://dive-deeper-supervised-learning.vercel.app
+
+The [`web/`](web/) directory is a **Next.js** app that runs six of the notebooks' models **entirely in your
+browser** — every prediction is computed client-side from precomputed model artifacts (no server, no upload,
+nothing leaves your machine). Deployed on **Vercel**.
+
+| Demo | What you can do |
+|------|-----------------|
+| **Decision Tree** | Configure a person, pick a tree depth, and watch it walk the decision path to a prediction |
+| **Boosting (LightGBM)** | A real 80-tree LightGBM runs live — change a feature and watch the income probability move (a "what-if" explanation) |
+| **Ensembles** | Toggle base models in/out of a soft-voting ensemble and see accuracy and diversity respond |
+| **k-NN & SVM** | Switch *k*, kernel, C, and gamma and watch the 2D decision boundary reshape |
+| **Interpretability** | Partial-dependence curves and per-person SHAP explanations |
+| **Threshold Selector** | Drag the decision threshold; the confusion matrix, precision/recall, and ROC/PR operating points update live |
+
+```bash
+cd web
+npm install
+npm run dev     # then open http://localhost:3000
+```
 
 ---
 

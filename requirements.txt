@@ -9,9 +9,10 @@ lightgbm>=4.3
 catboost>=1.2
 xgboost>=2.1
 
-# Imbalance handling & explainability (notebook 02)
+# Imbalance handling & explainability (notebooks 02, 06)
 imbalanced-learn>=0.12
 shap>=0.45
+lime>=0.2
 
 # Hyperparameter optimization (notebook 04)
 optuna>=3.6

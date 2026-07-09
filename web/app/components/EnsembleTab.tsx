@@ -82,9 +82,17 @@ export default function EnsembleTab() {
         </div>
 
         <div className="callout note">
-          Ensembles only help when models <strong>disagree</strong>. Turn on similar models (high agreement) and
-          the ensemble barely moves; combine <strong>diverse</strong> ones — a linear model, a forest, an SVM, a
-          k-NN — and voting can beat every individual. That's the whole lesson of Notebook 03.
+          <strong>How to read this.</strong> The big number is the accuracy of the <em>combined</em> vote; the
+          bars below are each model on its own (lit bars are the ones you've switched on). <strong>Avg
+          agreement</strong> measures how alike the chosen models' predictions are — 1.0 means they're
+          near-identical. The pill tells you whether the ensemble beat its own best member.
+        </div>
+
+        <div className="callout note">
+          <strong>The takeaway:</strong> ensembles only help when models <strong>disagree</strong>. Turn on
+          similar models (high agreement) and the vote barely moves; combine <strong>diverse</strong> ones — a
+          linear model, a forest, an SVM, a k-NN — and voting can beat every individual. That's the whole lesson
+          of Notebook 03.
         </div>
       </div>
     </div>

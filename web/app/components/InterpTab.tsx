@@ -108,6 +108,13 @@ export default function InterpTab() {
           </p>
         </div>
       </div>
+
+      <div className="callout note">
+        <strong>Two questions, two tools.</strong> The <em>left</em> curve is <strong>global</strong> — it
+        answers “across everyone, how does this feature change the prediction on average?” The <em>right</em>{" "}
+        bars are <strong>local</strong> — they answer “for this one specific person, which features pushed their
+        score up or down?” Pick different people (sorted low → high income) to watch the drivers change.
+      </div>
     </div>
   );
 }

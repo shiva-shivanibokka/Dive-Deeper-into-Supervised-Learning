@@ -60,6 +60,14 @@ export default function BoostTab() {
           the features at once. Try flipping <strong>marital status</strong> to “Married-civ-spouse” or raising{" "}
           <strong>capital gain</strong> and watch the probability jump: that's a live “what-if” explanation.
         </div>
+
+        <div className="callout note">
+          <strong>Which levers move it most?</strong> The model weighs features unequally. <strong>Capital gain</strong>{" "}
+          has the strongest pull — a large gain almost guarantees a &gt;$50K prediction — followed by{" "}
+          <strong>education</strong>, <strong>age</strong>, and <strong>hours per week</strong>. <strong>Sex</strong>{" "}
+          barely moves the bar, which is on purpose: the model learned to rely on it least. If a control hardly
+          changes the number, that just means this model doesn't weight it heavily.
+        </div>
       </div>
     </div>
   );

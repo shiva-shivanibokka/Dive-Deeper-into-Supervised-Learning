@@ -72,10 +72,17 @@ export default function KnnSvmTab() {
           </p>
         </div>
         <div className="callout note" style={{ maxWidth: 720 }}>
-          Two interleaving half-moons — a boundary no straight line can split. A <strong>tiny k</strong> (k=1)
-          makes jagged islands (overfitting) while a large k over-smooths. A <strong>linear SVM</strong> fails,
-          but an <strong>RBF</strong> kernel curves around the moons; crank <strong>gamma</strong> up and the
-          boundary shatters into little bubbles. This is the picture behind Notebook 05.
+          <strong>How to read the picture.</strong> The two shaded areas are the regions each model assigns to a
+          class; the dots are the actual training points. A dot sitting on the <em>opposite</em>-colored shade is
+          a point the model gets wrong. So a good boundary is one where the shading matches the dots underneath it.
+        </div>
+
+        <div className="callout note" style={{ maxWidth: 720 }}>
+          <strong>What to try:</strong> two interleaving half-moons — no straight line can split them. A{" "}
+          <strong>tiny k</strong> (k=1) makes jagged islands around single points (overfitting) while a large k
+          over-smooths. A <strong>linear SVM</strong> fails outright, but an <strong>RBF</strong> kernel curves
+          around the moons; crank <strong>gamma</strong> up and the boundary shatters into little bubbles. This is
+          the picture behind Notebook 05.
         </div>
       </div>
     </div>

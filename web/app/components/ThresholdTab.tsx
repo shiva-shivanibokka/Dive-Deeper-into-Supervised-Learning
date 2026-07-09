@@ -122,11 +122,19 @@ export default function ThresholdTab() {
         </div>
 
         <div className="callout note">
+          <strong>How to read this.</strong> The grid counts four outcomes: correctly caught &gt;$50K, correctly
+          left ≤$50K, <em>false alarms</em> (flagged but really ≤$50K), and <em>misses</em> (real &gt;$50K we let
+          through). <strong>Precision</strong> asks “of everyone we flagged, how many really were &gt;$50K?”;{" "}
+          <strong>recall</strong> asks “of all the real &gt;$50K people, how many did we catch?”. The{" "}
+          <span style={{ color: "var(--lime)" }}>green dot</span> on each curve marks your current cutoff.
+        </div>
+
+        <div className="callout note">
           <strong>The threshold applies to one model at a time</strong> — the one in the dropdown. Every model
           turns its own probabilities into a yes/no at your chosen cutoff, so switching from LightGBM to Logistic
-          Regression changes the whole confusion matrix even at the same threshold. Slide{" "}
-          <strong>left</strong> to catch more high earners (recall ↑, more false alarms); the model itself never
-          changes — only where you draw the line (Notebook 07).
+          Regression changes the whole confusion matrix even at the same threshold. Slide <strong>left</strong> to
+          catch more high earners (recall ↑, more false alarms); slide <strong>right</strong> for the opposite.
+          The model never changes — only where you draw the line (Notebook 07).
         </div>
       </div>
     </div>

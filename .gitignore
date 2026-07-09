@@ -1,0 +1,34 @@
+# Data & downloaded datasets
+data/
+*.gz
+*.tar
+*.zip
+
+# Model artifacts (keep .onnx exports for the web app in web/public, not here)
+*.pkl
+*.joblib
+*.cbm
+checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Node / Next.js (web demo)
+web/node_modules/
+web/.next/
+web/out/
+web/.vercel/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Planning & audit files (local only, not part of the published repo)
+PLAN.md
+AUDIT.md
+

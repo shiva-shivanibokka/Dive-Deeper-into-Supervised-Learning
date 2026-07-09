@@ -1,0 +1,31 @@
+# Core ML & data
+scikit-learn>=1.5
+pandas>=2.2
+numpy>=1.26
+scipy>=1.13
+
+# Gradient boosting (notebook 02)
+lightgbm>=4.3
+catboost>=1.2
+xgboost>=2.1
+
+# Imbalance handling & explainability (notebook 02)
+imbalanced-learn>=0.12
+shap>=0.45
+
+# Hyperparameter optimization (notebook 04)
+optuna>=3.6
+
+# Plotting
+matplotlib>=3.9
+seaborn>=0.13
+
+# ONNX export for the web demo
+skl2onnx>=1.17
+onnxmltools>=1.12
+onnx>=1.17
+onnxruntime>=1.19
+
+# Notebook execution
+jupyter>=1.1
+nbconvert>=7.16
